@@ -27,7 +27,7 @@ function animateScore(targetScore, duration) {
 
 playBtn.addEventListener("click", () => {
   const selected = videos[Math.floor(Math.random() * videos.length)];
-  const randomScore = Math.floor(Math.random() * 999999999);
+  const randomScore = Math.floor(Math.random() * 9999);
   scoreEl.textContent = "0";
   videoEl.src = selected;
   loadingEl.style.display = "block";
