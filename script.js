@@ -3,6 +3,7 @@ const videos = ["RYU_Car01.mp4", "KEN_Car01.mp4"];
 const videoEl = document.getElementById("video");
 const scoreEl = document.getElementById("score");
 const playBtn = document.getElementById("playBtn");
+const placeholderEl = document.getElementById("video-placeholder");
 const loadingEl = document.getElementById("loading");
 
 let intervalId = null;
@@ -31,6 +32,7 @@ playBtn.addEventListener("click", () => {
   videoEl.src = selected;
   loadingEl.style.display = "block";
   videoEl.play();
+  placeholderEl.style.display = "none";
   videoEl.onplaying = () => { loadingEl.style.display = "none"; };
   animateScore(randomScore, videoEl.duration ? videoEl.duration * 1000 : 12000);
 

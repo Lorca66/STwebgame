@@ -60,3 +60,20 @@ button {
   z-index: 99;
   display: none;
 }
+
+#video-placeholder {
+  position: absolute;
+  width: 800px;
+  height: 450px;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #888;
+  background-color: #f8f8f8;
+  border: 2px dashed #ccc;
+  z-index: 5;
+}
