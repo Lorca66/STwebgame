@@ -1,8 +1,10 @@
+
 const videos = ["RYU_Car01.mp4", "KEN_Car01.mp4"];
 const videoEl = document.getElementById("video");
 const scoreEl = document.getElementById("score");
 const playBtn = document.getElementById("playBtn");
 const loadingEl = document.getElementById("loading");
+const placeholderEl = document.getElementById("video-placeholder");
 
 let intervalId = null;
 
@@ -26,28 +28,28 @@ function animateScore(targetScore, duration) {
 
 playBtn.addEventListener("click", () => {
   const selected = videos[Math.floor(Math.random() * videos.length)];
-  const randomScore = Math.floor(Math.random() * 9999);
+  const randomScore = Math.floor(Math.random() * 10000); // ✅ 限制最大 9999
 
   scoreEl.textContent = "0";
   videoEl.src = selected;
   videoEl.load();
   loadingEl.style.display = "block";
+  placeholderEl.style.display = "none";
 
-  // 等影片 metadata 讀取完才啟動動畫
   videoEl.onloadedmetadata = () => {
-    const durationMs = videoEl.duration ? videoEl.duration * 1000 : 12000;
+    const durationMs = videoEl.duration ? videoEl.duration * 1000 : 5000;
     animateScore(randomScore, durationMs);
-    videoEl.play();
+    videoEl.play().catch((err) => {
+      console.error("影片播放失敗：", err);
+    });
   };
 
-  // 隱藏 loading 當影片開始播放
   videoEl.onplaying = () => {
     loadingEl.style.display = "none";
   };
 
-  // 影片結束時，強制中斷動畫 + 顯示最終分數
   videoEl.onended = () => {
-    clearInterval(intervalId); // 🛑 停止分數動畫
-    scoreEl.textContent = randomScore.toLocaleString(); // ✅ 顯示正確最終分數
+    clearInterval(intervalId); // ✅ 停止動畫
+    scoreEl.textContent = randomScore.toLocaleString(); // ✅ 顯示最終分數
   };
 });

@@ -77,3 +77,5 @@ button {
   border: 2px dashed #ccc;
   z-index: 5;
 }
+
+#video-placeholder { pointer-events: none; }
