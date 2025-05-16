@@ -1,0 +1,46 @@
+
+body {
+  background: #fff;
+  text-align: center;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.score-box {
+  background: #4EC6F3;
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 20px;
+  font-size: 36px;
+  font-weight: bold;
+  color: #000;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.score-box #score {
+  color: #ffeb3b;
+  margin-left: 20px;
+}
+
+video {
+  margin-top: 100px;
+}
+
+.button-container {
+  margin-top: 30px;
+}
+
+button {
+  background: #000;
+  color: #fff;
+  font-size: 24px;
+  padding: 16px 40px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
